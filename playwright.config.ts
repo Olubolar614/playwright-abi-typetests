@@ -51,7 +51,7 @@ const config: PlaywrightTestConfig = {
     trace: 'on-first-retry',
     video: 'retry-with-video',
     launchOptions: {
-      headless: false,
+      headless: true,
       args: ["--start-maximized"]
     }
     // httpCredentials: {
