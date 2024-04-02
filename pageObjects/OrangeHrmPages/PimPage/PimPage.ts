@@ -29,6 +29,7 @@ export class PimPage {
   async createNewEmployee(page:Page) {
     await this.pimElement.click();
     await page.waitForLoadState('domcontentloaded');
+    await this.addEmployeeButton.waitFor({ state: 'visible' })
     await this.addEmployeeButton.click();
     await page.waitForLoadState('domcontentloaded');
     await this.firstNameField.fill("Humayun");
