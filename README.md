@@ -36,10 +36,10 @@ npm run test
 npx playwright test tests/{specfile_name.ts}
 ```
 
-- To generate allure report 
+- To generate and open allure report 
 ```bash
-npm run test:reporter 
-npm run open:allure-report
+npm run generate-report   
+npm run open:allure-report 
 ```
 
 ## Docker 

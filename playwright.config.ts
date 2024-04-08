@@ -11,7 +11,7 @@ import { devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: './tests',
+  testDir: "./tests",
   /* Maximum time one test can run for. */
   timeout: 120 * 1000,
   expect: {
@@ -19,7 +19,7 @@ const config: PlaywrightTestConfig = {
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 5000
+    timeout: 5000,
   },
 
   /* Run tests in files in parallel */
@@ -29,13 +29,9 @@ const config: PlaywrightTestConfig = {
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : 3,
+  workers: process.env.CI ? 5 : 3,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
-    ['dot'],
-    ['html'],
-    //['allure-playwright', { outputFolder: 'allure-results' }]
-  ],
+  reporter: [ ["allure-playwright", {}] ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     viewport: null,
@@ -48,12 +44,13 @@ const config: PlaywrightTestConfig = {
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-    video: 'retry-with-video',
+    trace: "on-first-retry",
+    video: "on",
+    screenshot:"only-on-failure",
     launchOptions: {
       headless: true,
-      args: ["--start-maximized"]
-    }
+      args: ["--start-maximized"],
+    },
     // httpCredentials: {
     //   username: 'bill',
     //   password: 'pa55w0rd',
@@ -63,12 +60,11 @@ const config: PlaywrightTestConfig = {
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: "chromium",
       use: {
-        ...devices['Desktop Chrome'],
-        screenshot: 'on',
-        trace: 'on',
-
+        ...devices["Desktop Chrome"],
+        screenshot: "on",
+        trace: "on",
       },
     },
 
@@ -117,7 +113,7 @@ const config: PlaywrightTestConfig = {
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  outputDir: 'test-results/',
+  outputDir: "test-results/",
 
   /* Run your local dev server before starting the tests */
   // webServer: {
