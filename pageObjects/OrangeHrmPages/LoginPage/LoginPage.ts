@@ -13,7 +13,7 @@ export class LoginPage {
         this.dashboardHeader = page.getByRole('heading', { name: 'Dashboard' })
       }
       async goto() {
-        await this.page.goto('https://opensource-demo.orangehrmlive.com');
+        await this.page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
       }
     
       async performLogin() {
