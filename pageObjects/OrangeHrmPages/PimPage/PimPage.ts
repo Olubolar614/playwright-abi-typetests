@@ -38,7 +38,7 @@ export class PimPage {
     this.randomNumber = this.generateRandomNumber(6);
     await this.pimElement.click();
     await page.waitForLoadState("domcontentloaded");
-    await this.addEmployeeButton.waitFor({ state: "visible" });
+    //await this.addEmployeeButton.waitFor({ state: "visible" });
     await this.addEmployeeButton.click();
     await page.waitForLoadState("domcontentloaded");
     await this.firstNameField.fill("Humayun");
